@@ -5,8 +5,9 @@ import { svelte } from '@sveltejs/vite-plugin-svelte'
 export default defineConfig({
   plugins: [svelte()],
   server: {
-    port: 80,
-    host: true, // allows access from other devices
+    port: 3000,     // was 80
+    host: true,
     allowedHosts: ['jasperrutherford.com'],
-  },
+  }  
 })
+
