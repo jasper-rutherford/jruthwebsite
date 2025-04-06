@@ -7,5 +7,6 @@ export default defineConfig({
   server: {
     port: 80,
     host: true, // allows access from other devices
+    allowedHosts: ['jasperrutherford.com'],
   },
 })
