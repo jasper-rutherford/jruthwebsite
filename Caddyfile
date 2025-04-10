@@ -1,0 +1,8 @@
+{
+  email {$GODADDY_EMAIL}
+  acme_dns godaddy
+}
+
+jasperrutherford.com {
+  reverse_proxy svelte-nginx:80
+}
