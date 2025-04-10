@@ -1,5 +1,28 @@
 services:
-  jaspasite:
-    build: .
+  svelte-nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile.svelte-nginx
+    container_name: svelte-nginx
+    expose: # so caddy can reverse proxy to nginx
+      - "80"
+
+  caddy:
+    build:
+      context: .
+      dockerfile: Dockerfile.caddy
+    container_name: caddy
     ports:
       - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    environment:
+      - GODADDY_EMAIL=${GODADDY_EMAIL}
+      - GODADDY_API_KEY=${GODADDY_API_KEY}
+      - GODADDY_API_SECRET=${GODADDY_API_SECRET}
+
+volumes:
+  caddy_data:
+  caddy_config:
