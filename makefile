@@ -1,6 +1,6 @@
 prod:
 	docker compose down
-	docker compose build --no-cache --progress=plain .
+	docker compose --progress=plain build --no-cache
 	docker compose up -d
 
 dev:
