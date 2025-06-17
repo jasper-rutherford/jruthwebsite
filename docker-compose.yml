@@ -21,8 +21,7 @@ services:
       - caddy_config:/config
     environment:
       - GODADDY_EMAIL=${GODADDY_EMAIL}
-      - GODADDY_API_KEY=${GODADDY_API_KEY}
-      - GODADDY_API_SECRET=${GODADDY_API_SECRET}
+      - GODADDY_TOKEN=${GODADDY_TOKEN}
 
 volumes:
   caddy_data:
