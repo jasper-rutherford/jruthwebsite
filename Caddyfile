@@ -1,6 +1,9 @@
 {
   email {$GODADDY_EMAIL}
-  acme_dns godaddy
+  acme_dns godaddy {
+    api_key {$GODADDY_API_KEY}
+    api_secret {$GODADDY_API_SECRET}
+  }
 }
 
 jasperrutherford.com {
