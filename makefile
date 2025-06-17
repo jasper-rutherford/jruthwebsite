@@ -5,3 +5,9 @@ prod:
 
 dev:
 	npm run dev
+
+
+# Rebuild and restart only caddy
+rebuild-caddy:
+	docker compose build --no-cache caddy
+	docker compose up -d caddy

@@ -1,6 +1,18 @@
-FROM caddy:builder AS builder
-RUN xcaddy build \
-    --with github.com/xcaddyplugins/caddy-dns-godaddy
+# We're using the old Caddy (v2.6.4) because the caddy-dns/godaddy plugin isn't compatible with newer Caddy versions—it expects older libdns.Record fields that got removed later.
 
-FROM caddy:2
-COPY --from=builder /usr/bin/caddy /usr/bin/caddy
+# and then the old caddy gets grumpy when used with newer golang versions. so we have to use an old golang too. 
+
+# aaaaaaand then xcaddy doesnt like old go. so we need old xcaddy. 
+
+FROM golang:1.20 AS builder
+
+RUN go install github.com/caddyserver/xcaddy/cmd/xcaddy@v0.3.3
+
+RUN xcaddy build v2.6.4 \
+    --with github.com/caddy-dns/godaddy@v1.0.3 \
+    --output /go/bin/caddy
+
+FROM caddy:2.6.4
+
+COPY --from=builder /go/bin/caddy /usr/bin/caddy
+
