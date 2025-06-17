@@ -1,8 +1,7 @@
 {
   email {$GODADDY_EMAIL}
   acme_dns godaddy {
-    api_key {$GODADDY_API_KEY}
-    api_secret {$GODADDY_API_SECRET}
+    api_token {$GODADDY_TOKEN}  
   }
 }
 
