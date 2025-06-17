@@ -1,10 +1,11 @@
 {
   email {$GODADDY_EMAIL}
-  acme_dns godaddy {
-    api_token {$GODADDY_TOKEN}  
-  }
 }
 
 jasperrutherford.com {
+  tls {
+    dns godaddy {env.GODADDY_TOKEN}
+  }
+
   reverse_proxy svelte-nginx:80
 }

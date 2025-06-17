@@ -1,0 +1,5 @@
+{"level":"info","ts":1750181652.0568876,"msg":"maxprocs: Leaving GOMAXPROCS=4: CPU quota undefined"}
+{"level":"info","ts":1750181652.057508,"msg":"GOMEMLIMIT is updated","package":"github.com/KimMachineGun/automemlimit/memlimit","GOMEMLIMIT":3580780953,"previous":9223372036854775807}
+{"level":"info","ts":1750181652.058416,"msg":"using config from file","file":"/etc/caddy/Caddyfile"}
+{"level":"info","ts":1750181652.0586786,"msg":"maxprocs: No GOMAXPROCS change to reset"}
+Error: adapting config using caddyfile: parsing caddyfile tokens for 'acme_dns': unknown configuration option: api_token, at /etc/caddy/Caddyfile:4
